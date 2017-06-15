@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import VideoListItem from './video_list_item';
 
 export default class VideoList extends Component {
     render() {
@@ -6,9 +7,13 @@ export default class VideoList extends Component {
             return <div>Loading...</div>;
         }
 
+        const videoItems = this.props.videos.map((video) => {
+            return <VideoListItem key={video.etag} video={video} />; 
+        });
+
         return (
             <ul ref="videoList" className="col-md-4 list-group">
-                {this.props.videos.length}
+                {videoItems}
             </ul>
         );
     }
