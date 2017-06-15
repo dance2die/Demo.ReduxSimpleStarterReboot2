@@ -8,7 +8,10 @@ export default class VideoList extends Component {
         }
 
         const videoItems = this.props.videos.map((video) => {
-            return <VideoListItem key={video.etag} video={video} />; 
+            return <VideoListItem 
+                key={video.etag} 
+                video={video}
+                onVideoSelect={this.props.onVideoSelect} />; 
         });
 
         return (
